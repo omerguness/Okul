@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+/* Tüm tutarlar kuruş cinsinden. */
+int main(void) {
+    int tutar, odenen, tl, kr, kalan;
+    int a200, a100, a50, a20, a10, a5, a1tl, k50, k25, k10, k5, k1;
+
+    printf("Ürün tutarı (TL kuruş): ");
+    scanf("%d %d", &tl, &kr);
+    tutar = tl * 100 + kr;
+
+    printf("Ödenen para (TL kuruş): ");
+    scanf("%d %d", &tl, &kr);
+    odenen = tl * 100 + kr;
+
+    /* Ödenen para yetersizse (odenen >= tutar) 0 olur, para üstü 0 çıkar */
+    kalan = (odenen - tutar) * (odenen >= tutar);
+    printf("\nPara üstü: %d TL %d kuruş\n\n", kalan / 100, kalan % 100);
+
+    a200 = kalan / 20000; kalan %= 20000;
+    a100 = kalan / 10000; kalan %= 10000;
+    a50  = kalan / 5000;  kalan %= 5000;
+    a20  = kalan / 2000;  kalan %= 2000;
+    a10  = kalan / 1000;  kalan %= 1000;
+    a5   = kalan / 500;   kalan %= 500;
+    a1tl = kalan / 100;   kalan %= 100;
+    k50  = kalan / 50;    kalan %= 50;
+    k25  = kalan / 25;    kalan %= 25;
+    k10  = kalan / 10;    kalan %= 10;
+    k5   = kalan / 5;     kalan %= 5;
+    k1   = kalan / 1;
+
+    printf("200.00 TL: %d adet\n", a200);
+    printf("100.00 TL: %d adet\n", a100);
+    printf("50.00 TL: %d adet\n",  a50);
+    printf("20.00 TL: %d adet\n",  a20);
+    printf("10.00 TL: %d adet\n",  a10);
+    printf("5.00 TL: %d adet\n",   a5);
+    printf("1.00 TL: %d adet\n",   a1tl);
+    printf("0.50 TL: %d adet\n",   k50);
+    printf("0.25 TL: %d adet\n",   k25);
+    printf("0.10 TL: %d adet\n",   k10);
+    printf("0.05 TL: %d adet\n",   k5);
+    printf("0.01 TL: %d adet\n",   k1);
+    return 0;
+}
